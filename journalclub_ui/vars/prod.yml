@@ -1,0 +1,8 @@
+branch: master
+region: "us-east-2"
+
+AWS_REDIRECT_URI:  https://my.journal.club/signin-callback
+API_URL: https://v1api.journal.club/
+AWS_DOMAIN: https://my-journal-club.auth.us-east-2.amazoncognito.com
+AWS_CLIENT_ID : 
+GOOGLE_TAG_MANAGER : GTM-abcdefghijkl1245

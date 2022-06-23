@@ -1,0 +1,14 @@
+---
+- name: Import YARN APT key
+  become: yes
+  apt_key:
+    url: "https://dl.yarnpkg.com/debian/pubkey.gpg"
+    state: present
+
+
+- name: Add YARN APT repo/ppa
+  apt_repository:
+    repo: "deb https://dl.yarnpkg.com/debian/ stable main"
+    filename: "yarn"
+    state: present
+    update_cache: yes

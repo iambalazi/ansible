@@ -1,0 +1,11 @@
+[frontend]
+localhost
+
+# IMPORTANT: change this to reflect the environment you are targeting
+[dev:children]
+frontend
+
+# IMPORTANT: ensure you update the env var to reflect the environment
+[all:vars]
+ansible_connection=local
+env=dev

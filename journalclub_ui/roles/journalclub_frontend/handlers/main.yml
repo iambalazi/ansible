@@ -1,0 +1,13 @@
+---
+# handlers file for journalclub-frontend
+  - name: Push build directory to S3 bucket
+
+    s3_sync:
+      aws_access_key: "{{ AWS_ACCESS_KEY }}"
+      aws_secret_key: "{{ AWS_SECRET_KEY }}"
+      bucket: "{{ bucket }}"
+      file_root: "{{ dest_dir }}/{{ project }}/build/"
+      region: "{{ region }}"
+      permission: public-read
+      exclude: "none"
+      cache_control: "max-age=30"

@@ -1,0 +1,33 @@
+---
+- name: Display var values
+  debug:
+    msg: "API url is: '{{ API_URL }}'. Bucket value is: '{{ bucket }}'. Environment is: '{{ env }}'. Region is: '{{ region }}'"
+
+- name: Install build dependencies YARN
+  become_user: "{{ user }}"
+  yarn:
+    path: "{{ dest_dir }}/{{ project }}/"
+  register: yarn_install
+  tags:
+    - deploy
+
+
+- name: Build project YARN
+  become_user: "{{ user }}"
+  environment:
+    REACT_APP_API_URL: "{{ API_URL }}"
+    REACT_APP_AWS_DOMAIN: "{{ AWS_DOMAIN }}"
+    REACT_APP_AWS_CLIENT_ID:  "{{ AWS_CLIENT_ID }}"
+    REACT_APP_AWS_REDIRECT_URI: "{{ AWS_REDIRECT_URI }}"
+    REACT_APP_AWS_RESPONSE_TYPE: "{{ AWS_RESPONSE_TYPE }}"
+#    REACT_APP_GOOGLE_TAG_MANAGER: "{{ GOOGLE_TAG_MANAGER }}"
+  command: yarn build
+  args:
+    chdir: "{{ dest_dir }}/{{ project }}/"
+  register: build_result
+  failed_when: "'The build folder is ready to be deployed.' not in build_result.stdout_lines"
+  notify:
+    - Push build directory to S3 bucket
+  tags:
+    - deploy
+    - push

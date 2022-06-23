@@ -1,0 +1,7 @@
+---
+# tasks file for journalclub_devops
+
+- import_tasks: add_ppa.yml
+- import_tasks: install.yml
+- import_tasks: git.yml
+- import_tasks: build.yml

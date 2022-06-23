@@ -1,0 +1,8 @@
+branch: QA
+region: "us-east-2"
+
+AWS_REDIRECT_URI:  https://v1.qa.journal.club/signin-callback
+API_URL: https://v1api.qa.journal.club/
+AWS_DOMAIN: https://v1-qa-journal-club.auth.us-east-2.amazoncognito.com
+AWS_CLIENT_ID : cctmujpqakfdmgh4so0fj6hi6
+GOOGLE_TAG_MANAGER : GTM-abcdefghijkl1245

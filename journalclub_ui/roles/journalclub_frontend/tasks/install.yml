@@ -1,0 +1,30 @@
+---
+- name: Install git
+  become: yes
+  apt:
+    pkg: git
+    state: latest
+
+
+- name: Install YARN
+  become: yes
+  apt:
+    pkg: yarn
+    state: latest
+    update_cache: yes
+
+
+- name: Install pip3
+  become: yes
+  apt:
+    pkg: python3-pip
+    state: latest
+    update_cache: yes
+
+
+- name: Install s3_sync dependencies, boto3 and botocore with pip3
+  pip:
+    name:
+    - boto3
+    - botocore
+    executable: pip3

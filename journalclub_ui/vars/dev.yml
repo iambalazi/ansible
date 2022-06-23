@@ -1,0 +1,8 @@
+branch: develop
+region: "us-east-2"
+
+AWS_REDIRECT_URI:  https://v1.dev.journal.club/signin-callback
+API_URL: https://v1api.dev.journal.club/
+AWS_DOMAIN: https://v1-dev-journal-club.auth.us-east-2.amazoncognito.com
+AWS_CLIENT_ID : 4aaumng5ptnln45vnd3ug1alq9
+GOOGLE_TAG_MANAGER : GTM-abcdefghijkl1245

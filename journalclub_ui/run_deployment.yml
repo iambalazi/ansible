@@ -1,0 +1,10 @@
+---
+- name: Build and deploy the frontend
+  hosts: frontend
+  connection: local
+  vars_files:
+      - "vars/main.yml"
+      - "vars/vault.yml"
+      - "vars/{{ env }}.yml"
+  roles:
+    - journalclub_frontend

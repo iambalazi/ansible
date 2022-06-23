@@ -1,0 +1,21 @@
+---
+# vars file for journalclub_devops
+
+ansible_python_interpreter: /usr/bin/python3
+# these variables apply to a specific role (backend, frontend) for ALL environments
+# put anything that's specific to one role
+
+user: "{{ lookup('env', 'USER') }}"
+dest_dir: "/tmp/{{ user }}/"
+
+# journal-club ui repo
+repo_url: git@gitlab.com:ignitesol/journal-club/ui.git
+
+project: journalclub-frontend
+
+bucket: "v1-ui-{{ env }}-journalclub" 
+
+AWS_RESPONSE_TYPE : code&scope=email+openid+phone+profile
+# AWS creds, incoming from vault
+AWS_ACCESS_KEY: "{{ aws_access_key }}"
+AWS_SECRET_KEY: "{{ aws_secret_key }}"

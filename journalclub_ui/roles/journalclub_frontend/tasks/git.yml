@@ -1,0 +1,10 @@
+---
+- name: Clone git repo
+  become_user: "{{ user }}"
+  git:
+    clone: yes
+    version: "{{ branch }}"
+    repo: "{{ repo_url }}"
+    dest: "{{ dest_dir }}/{{ project }}/"
+  tags:
+    - deploy
